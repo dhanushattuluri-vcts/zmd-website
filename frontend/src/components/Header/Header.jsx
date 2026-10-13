@@ -298,4 +298,17 @@ export const productFamilies = [
     menuImage: parkingSensorStudio,
     menuImageAlt: 'ZMD parking sensor',
   },
+  {
+    slug: 'quad-desk',
+    name: 'Quad Desk Ultra',
+    eyebrow: 'Multi-seat computing',
+    status: 'Available now',
+    summary: 'Four independent workspaces from one powerful Intel® Core™ Ultra 7 host system.',
+    to: '/products/quad-desk',
+    image: parkingSensorContext,
+    imageAlt: 'Quad Desk Ultra multi-seat computing platform',
+    menuImage: parkingSensorStudio,
+    menuImageAlt: 'Quad Desk Ultra — placeholder image',
+    isPlaceholder: true,
+  },
 ];

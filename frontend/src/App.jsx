@@ -15,6 +15,7 @@ import EdgeAIPage from './pages/EdgeAI';
 import SolutionsPage from './pages/Solutions';
 import AboutPage from './pages/About';
 import ContactPage from './pages/Contact';
+import QuadDeskPage from './pages/QuadDesk';
 import parkingSensorContext from './assets/images/custom-iot/parking-sensor-context.webp';
 import safetyBandContext from './assets/images/custom-iot/safety-band-context-v1.webp';
 import parkingSensorContextV2 from './assets/images/custom-iot/parking-sensor-context-v2.webp';
@@ -51,6 +52,10 @@ const metadata = {
   '/products/custom-iot': {
     title: 'Custom IoT Products | ZMD',
     description: 'Explore ZMD Safety Bands, Parking Sensors and custom IoT product engagements.',
+  },
+  '/products/quad-desk': {
+    title: 'Quad Desk Ultra | ZMD',
+    description: 'Quad Desk Ultra — four independent workspaces from one powerful Intel Core Ultra 7 host system. Built for offices, labs and enterprise deployments.',
   },
   '/edge-ai': {
     title: 'Edge AI with Zevric Compact Edge Systems | ZMD',
@@ -379,6 +384,7 @@ export default function App() {
           <Route path="/products/servers" element={<ServersPage />} />
           <Route path="/products/custom-iot" element={<CustomIoTPage />} />
           <Route path="/products/iot" element={<Navigate to="/products/custom-iot" replace />} />
+          <Route path="/products/quad-desk" element={<QuadDeskPage />} />
           <Route path="/edge-ai" element={<EdgeAIPage />} />
           <Route path="/solutions" element={<SolutionsPage />} />
           <Route path="/solutions/surveillance" element={<Navigate to="/solutions#surveillance" replace />} />
