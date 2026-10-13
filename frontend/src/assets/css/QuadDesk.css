@@ -530,6 +530,19 @@
     transform 1150ms var(--quad-motion-ease) calc(var(--quad-motion-order) * 130ms);
 }
 
+.quad-motion-ready .quad-desk-seat.quad-motion-item .quad-desk-seat__image {
+  opacity: 0;
+  transform: scale(1.055) translateY(8px);
+}
+
+.quad-motion-ready .quad-desk-seat.is-quad-motion-visible .quad-desk-seat__image {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  transition:
+    opacity 650ms ease calc(120ms + var(--quad-motion-order) * 130ms),
+    transform 950ms var(--quad-motion-ease) calc(120ms + var(--quad-motion-order) * 130ms);
+}
+
 /* Host bar */
 .quad-motion-ready .quad-desk-host-bar.quad-motion-item {
   opacity: 0;
@@ -653,7 +666,8 @@
     transition-delay: 0ms !important;
   }
 
-  .quad-motion-ready .quad-motion-item {
+  .quad-motion-ready .quad-motion-item,
+  .quad-motion-ready .quad-desk-seat__image {
     opacity: 1 !important;
     clip-path: none !important;
     transform: none !important;
