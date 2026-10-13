@@ -66,6 +66,22 @@
   display: block;
 }
 
+@keyframes quad-desk-hero-image-enter {
+  from {
+    opacity: 0;
+    transform: translate3d(24px, 0, 0) scale(1.055);
+  }
+
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0) scale(1);
+  }
+}
+
+.quad-motion-ready .quad-desk-hero-backdrop__image {
+  animation: quad-desk-hero-image-enter 1500ms var(--quad-motion-ease) both;
+}
+
 .quad-desk-product-hero .product-story-hero__inner {
   position: relative;
   z-index: 2;

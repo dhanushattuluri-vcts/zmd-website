@@ -9,6 +9,7 @@ import edgeSmall from '../../assets/images/edge-devices/edge_box_small.webp';
 import edgeSharedPlatform from '../../assets/images/edge-devices/zevric-shared-platform-transparent.webp';
 import serverBlueprintFront from '../../assets/images/servers/blueprint_front.webp';
 import parkingSensorContext from '../../assets/images/custom-iot/parking-sensor-context.webp';
+import quadDeskStandalone from '../../assets/images/quad-desk/quad-desk-standalone.png';
 import cameraStudio from '../../assets/images/shared/product-family/camera-studio-v2.webp';
 import parkingSensorStudio from '../../assets/images/shared/product-family/parking-sensor-studio-v1.webp';
 import homeServerIndustrial from '../../assets/images/home/home-server-context-v2.webp';
@@ -305,10 +306,9 @@ export const productFamilies = [
     status: 'Available now',
     summary: 'Four independent workspaces from one powerful Intel® Core™ Ultra 7 host system.',
     to: '/products/quad-desk',
-    image: parkingSensorContext,
-    imageAlt: 'Quad Desk Ultra multi-seat computing platform',
-    menuImage: parkingSensorStudio,
-    menuImageAlt: 'Quad Desk Ultra — placeholder image',
-    isPlaceholder: true,
+    image: quadDeskStandalone,
+    imageAlt: 'Quad Desk Ultra desktop computer tower',
+    menuImage: quadDeskStandalone,
+    menuImageAlt: 'Quad Desk Ultra desktop computer tower',
   },
 ];
