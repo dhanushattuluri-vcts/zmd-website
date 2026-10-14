@@ -159,6 +159,17 @@ export default function ProductsPage() {
       customVisual: true,
       compact: true,
     },
+    {
+      slug: 'quad-desk',
+      name: 'Quad Desk Ultra',
+      role: 'Multi-seat computing',
+      description: 'Four independent workspaces from one powerful Intel® Core™ Ultra 7 host system. Built for offices, labs and enterprise deployments.',
+      action: 'Explore Quad Desk',
+      to: '/products/quad-desk',
+      surface: 'white',
+      quadDeskVisual: true,
+      compact: true,
+    },
   ];
 
   return (
@@ -231,6 +242,22 @@ export default function ProductsPage() {
                       />
                       <span>Parking Sensor</span>
                     </div>
+                  </div>
+                ) : family.quadDeskVisual ? (
+                  <div className="product-hub-quad-desk-visual" aria-label="Quad Desk Ultra multi-seat computing platform">
+                    <div className="product-hub-quad-desk-visual__workspace-grid">
+                      {[1, 2, 3, 4].map((n) => (
+                        <div className="product-hub-quad-desk-visual__seat" key={n}>
+                          <div className="product-hub-quad-desk-visual__screen">
+                            <span>USER 0{n}</span>
+                          </div>
+                        </div>
+                      ))}
+                    </div>
+                    <div className="product-hub-quad-desk-visual__host">
+                      <span>ZMD</span> Quad Desk Ultra
+                    </div>
+                    <span>Quad Desk Ultra</span>
                   </div>
                 ) : (
                   <img src={family.image} alt={family.imageAlt} loading="lazy" decoding="async" />

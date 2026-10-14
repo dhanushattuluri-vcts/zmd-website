@@ -241,6 +241,7 @@
 .products-motion-ready .product-hub-index__item:nth-child(2) i { animation-delay: -0.7s; }
 .products-motion-ready .product-hub-index__item:nth-child(3) i { animation-delay: -1.4s; }
 .products-motion-ready .product-hub-index__item:nth-child(4) i { animation-delay: -2.1s; }
+.products-motion-ready .product-hub-index__item:nth-child(5) i { animation-delay: -2.8s; }
 
 /* =============================================================================
    PRODUCT FAMILY SECTIONS
@@ -538,7 +539,7 @@
   }
 
   .product-hub-index__item,
-  .product-hub-index__item:nth-child(-n + 2) {
+  .product-hub-index__item:nth-child(-n + 4) {
     min-height: 80px;
     padding: 14px 16px;
   }
@@ -1761,5 +1762,90 @@
 
   .product-hub .product-hub-family--neutral .product-hub-family__inner {
     background: #f1f2f2;
+  }
+}
+
+/* =============================================================================
+   QUAD DESK ULTRA — PRODUCTS HUB VISUAL
+
+   Placeholder diagram shown in the Products overview card for Quad Desk.
+   ============================================================================= */
+.product-hub-quad-desk-visual {
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  background: #f8f9fa;
+  padding: 28px;
+  gap: 12px;
+}
+
+.product-hub-quad-desk-visual__workspace-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  flex: 1;
+}
+
+.product-hub-quad-desk-visual__seat {
+  border: 1px solid #e0e3e8;
+  border-radius: 7px;
+  background: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 10px;
+}
+
+.product-hub-quad-desk-visual__screen {
+  width: 100%;
+  max-width: 120px;
+  height: 54px;
+  background: #1b2028;
+  border: 2.5px solid #343942;
+  border-radius: 3px;
+  display: grid;
+  place-items: center;
+}
+
+.product-hub-quad-desk-visual__screen span {
+  color: #fff;
+  font-size: 0.62rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  font-family: var(--font-mono, monospace);
+}
+
+.product-hub-quad-desk-visual__host {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  background: #1d2026;
+  color: #fff;
+  border-radius: 6px;
+  padding: 12px 18px;
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.product-hub-quad-desk-visual__host span {
+  color: var(--brand-red, #ed1c24);
+  font-size: 1rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+}
+
+@media (max-width: 680px) {
+  .product-hub-quad-desk-visual {
+    min-height: 240px;
+    padding: 18px;
+    gap: 8px;
+  }
+
+  .product-hub-quad-desk-visual__screen {
+    height: 40px;
   }
 }

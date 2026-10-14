@@ -66,6 +66,11 @@
   display: block;
 }
 
+/* Desktop image visible by default, mobile image hidden */
+.quad-desk-hero-backdrop__image--mobile {
+  display: none;
+}
+
 @keyframes quad-desk-hero-image-enter {
   from {
     opacity: 0;
@@ -78,7 +83,11 @@
   }
 }
 
-.quad-motion-ready .quad-desk-hero-backdrop__image {
+.quad-motion-ready .quad-desk-hero-backdrop__image--desktop {
+  animation: quad-desk-hero-image-enter 1500ms var(--quad-motion-ease) both;
+}
+
+.quad-motion-ready .quad-desk-hero-backdrop__image--mobile {
   animation: quad-desk-hero-image-enter 1500ms var(--quad-motion-ease) both;
 }
 
@@ -351,6 +360,13 @@
   margin-top: 8px;
 }
 
+.quad-desk-config-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 .quad-desk-config-card {
   border: 1px solid var(--line, #e7e8eb);
   border-radius: 10px;
@@ -366,8 +382,43 @@
 }
 
 .quad-desk-config-card__top {
-  padding: 26px 26px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 26px 28px 20px;
   background: linear-gradient(135deg, #fff, #fafafa);
+}
+
+.quad-desk-config-card__header {
+  flex: 1 1 54%;
+  min-width: 0;
+}
+
+.quad-desk-config-card__media {
+  flex: 0 0 42%;
+  max-width: 320px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: transparent;
+}
+
+.quad-desk-config-card__media img {
+  width: 100%;
+  max-height: 180px;
+  height: auto;
+  object-fit: contain;
+  mix-blend-mode: multiply;
+  -webkit-mask-image: radial-gradient(ellipse at center, #000 58%, transparent 100%);
+  mask-image: radial-gradient(ellipse at center, #000 58%, transparent 100%);
+  filter: drop-shadow(0 8px 18px rgba(0, 0, 0, 0.1));
+  translate: -10px 0;
+  transition: transform 250ms ease;
+}
+
+.quad-desk-config-card:hover .quad-desk-config-card__media img {
+  transform: translateY(-2px) scale(1.02);
 }
 
 .quad-desk-config-card__model {
@@ -388,11 +439,25 @@
   line-height: 1.2;
 }
 
-.quad-desk-config-card__top > p {
+.quad-desk-config-card__top p {
   font-size: 0.84rem;
   color: var(--muted, #626773);
   margin: 0;
   line-height: 1.55;
+}
+
+.quad-desk-config-card__columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 0 26px 24px;
+  flex: 1;
+}
+
+.quad-desk-config-card__columns .quad-desk-config-card__list {
+  padding: 0;
+  flex: unset;
+  align-content: start;
 }
 
 .quad-desk-config-card__list {
@@ -646,28 +711,6 @@
     border-color 200ms ease;
 }
 
-/* Closing enquiry */
-.quad-motion-ready .product-oem-engagement h2.quad-motion-item,
-.quad-motion-ready .product-oem-engagement p.quad-motion-item {
-  opacity: 0;
-  transform: translate3d(-40px, 0, 0);
-}
-
-.quad-motion-ready .product-oem-engagement .button.quad-motion-item {
-  opacity: 0;
-  transform: translate3d(40px, 0, 0);
-}
-
-.quad-motion-ready .product-oem-engagement .is-quad-motion-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  transition:
-    opacity 820ms ease calc(var(--quad-motion-order) * 110ms),
-    transform 1350ms var(--quad-motion-ease) calc(var(--quad-motion-order) * 110ms),
-    background-color 220ms ease;
-}
-
-
 /* =============================================================================
    REDUCED MOTION
    ============================================================================= */
@@ -688,6 +731,25 @@
     clip-path: none !important;
     transform: none !important;
   }
+}
+
+/* Closing enquiry enters and exits with the viewport. */
+.quad-motion-ready .product-oem-engagement h2.quad-motion-item,
+.quad-motion-ready .product-oem-engagement p.quad-motion-item {
+  opacity: 1;
+  transform: translate3d(-14px, 0, 0);
+  transition: transform 700ms var(--quad-motion-ease);
+}
+
+.quad-motion-ready .product-oem-engagement .button.quad-motion-item {
+  opacity: 1;
+  transform: translate3d(14px, 0, 0);
+  transition: transform 700ms var(--quad-motion-ease), background-color 220ms ease;
+}
+
+.quad-motion-ready .product-oem-engagement .is-quad-motion-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
 }
 
 
@@ -750,32 +812,75 @@
    ============================================================================= */
 
 @media (max-width: 680px) {
+  /* ---- Mobile hero restructure ---- */
   .quad-desk-product-hero {
-    min-height: 480px;
+    min-height: 100svh;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+  }
+
+  /* Keep backdrop absolutely positioned behind content */
+  .quad-desk-hero-backdrop {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+
+  .quad-desk-hero-backdrop::after {
+    background: rgba(10, 13, 17, 0.4);
+  }
+
+  .quad-desk-hero-backdrop__image--desktop {
+    display: none;
+  }
+
+  .quad-desk-hero-backdrop__image--mobile {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 30%;
   }
 
   .quad-desk-product-hero .product-story-hero__inner {
     min-height: 0;
+    position: relative;
+    z-index: 2;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
   }
 
   .quad-desk-product-hero .product-story-hero__copy {
     max-width: 100%;
-    padding: 42px 0 34px;
+    padding: 32px 0 28px;
   }
 
-  .quad-desk-hero-backdrop__image {
-    object-position: right center;
+  .quad-desk-product-hero .product-story-hero__copy > p {
+    display: none;
   }
 
   .quad-desk-product-hero .product-story-hero__actions {
-    display: grid;
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-wrap: wrap;
     gap: 10px;
   }
 
   .quad-desk-product-hero .product-story-hero__actions .button {
-    width: 100%;
-    justify-content: space-between;
+    width: auto;
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 0.82rem;
+  }
+
+  .quad-desk-hero__meta {
+    margin-top: 14px;
   }
 
   .quad-desk-feature-grid {
@@ -805,6 +910,23 @@
     grid-template-columns: 1fr;
   }
 
+  .quad-desk-config-card__top {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 22px 20px 18px;
+  }
+
+  .quad-desk-config-card__media {
+    align-self: center;
+    max-width: 280px;
+    width: 100%;
+  }
+
+  .quad-desk-config-card__media img {
+    max-height: 160px;
+  }
+
   .quad-desk-hero-chips {
     gap: 8px;
   }
@@ -813,4 +935,56 @@
     font-size: 0.7rem;
     padding: 6px 11px;
   }
+}
+
+/* Slightly larger supporting type improves readability across the page. */
+.quad-desk-page .product-story-hero__copy > p {
+  font-size: 1.08rem;
+  line-height: 1.62;
+}
+
+.quad-desk-page .quad-desk-chip {
+  font-size: 0.8rem;
+}
+
+.quad-desk-page .product-highlight-band__grid span {
+  font-size: 0.68rem;
+}
+
+.quad-desk-page .product-highlight-band__grid strong {
+  font-size: 0.92rem;
+}
+
+.quad-desk-page .quad-desk-feature-card h3 {
+  font-size: 1.1rem;
+}
+
+.quad-desk-page .quad-desk-feature-card p,
+.quad-desk-page .quad-desk-config-card__top p {
+  font-size: 0.9rem;
+}
+
+.quad-desk-page .quad-desk-checklist li,
+.quad-desk-page .quad-desk-config-card__list li {
+  font-size: 0.93rem;
+}
+
+.quad-desk-page .quad-desk-seat strong {
+  font-size: 0.82rem;
+}
+
+.quad-desk-page .quad-desk-seat small {
+  font-size: 0.74rem;
+}
+
+.quad-desk-page .quad-desk-use-card h3 {
+  font-size: 1.05rem;
+}
+
+.quad-desk-page .quad-desk-use-card p {
+  font-size: 0.86rem;
+}
+
+.quad-desk-page .product-oem-engagement p {
+  font-size: 1.04rem;
 }

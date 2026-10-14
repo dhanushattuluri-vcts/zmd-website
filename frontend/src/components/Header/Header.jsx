@@ -301,14 +301,14 @@ export const productFamilies = [
   },
   {
     slug: 'quad-desk',
-    name: 'Quad Desk Ultra',
+    name: 'Quad Desk',
     eyebrow: 'Multi-seat computing',
     status: 'Available now',
     summary: 'Four independent workspaces from one powerful Intel® Core™ Ultra 7 host system.',
     to: '/products/quad-desk',
     image: quadDeskStandalone,
-    imageAlt: 'Quad Desk Ultra desktop computer tower',
+    imageAlt: 'Quad Desk desktop computer tower',
     menuImage: quadDeskStandalone,
-    menuImageAlt: 'Quad Desk Ultra desktop computer tower',
+    menuImageAlt: 'Quad Desk desktop computer tower',
   },
 ];

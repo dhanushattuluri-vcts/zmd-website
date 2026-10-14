@@ -5,18 +5,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import quadDeskHero from '../assets/images/quad-desk/quad-desk-hero.webp';
+import quadDeskHeroMobile from '../assets/images/quad-desk/mobherosecquad.png';
 import workspaceAnalytics from '../assets/images/quad-desk/Pasted image1.png';
 import workspaceDevelopment from '../assets/images/quad-desk/Pasted image2.png';
 import workspaceLearning from '../assets/images/quad-desk/Pasted image3.png';
 import workspaceCommunications from '../assets/images/quad-desk/Pasted image4.png';
+import quadDeskChassis from '../assets/images/quad-desk/quadtransparent.png';
 import '../assets/css/QuadDesk.css';
-
-function keepFinalSectionVisibleAtPageEnd(element, pageRoot) {
-  const finalSection = [...pageRoot.children].reverse().find((child) => child.tagName === 'SECTION');
-  if (!finalSection?.contains(element)) return false;
-  const pageHeight = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-  return Math.ceil(window.scrollY + window.innerHeight) >= pageHeight - 8;
-}
 
 function ArrowButton({ to, children, secondary = false, light = false, href }) {
   const variant = light ? 'button--light' : secondary ? 'button--secondary' : 'button--primary';
@@ -53,7 +48,7 @@ function OEMEngagement({ title, body, action = 'Partner with ZMD' }) {
           <h2>{title}</h2>
           <p>{body}</p>
         </div>
-        <ArrowButton href="mailto:sales@zmd.tech?subject=Quad%20Desk%20Enquiry" light>{action}</ArrowButton>
+        <ArrowButton to="/contact" light>{action}</ArrowButton>
       </div>
     </section>
   );
@@ -66,8 +61,8 @@ function OEMEngagement({ title, body, action = 'Partner with ZMD' }) {
 
 const highlights = [
   ['Independent users', '4 simultaneous'],
-  ['Memory', '64 GB DDR5-6400'],
-  ['Storage', '1 TB PCIe Gen 4 NVMe'],
+  ['Memory', '128 GB DDR5-6400'],
+  ['Storage', 'X2 PCIe NVMe SSD'],
   ['Warranty', '3-year ZMD'],
 ];
 
@@ -95,8 +90,8 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="4" width="18" height="13" rx="1.5"/>
-        <path d="M8 21h8M12 17v4"/>
+        <rect x="3" y="4" width="18" height="13" rx="1.5" />
+        <path d="M8 21h8M12 17v4" />
       </svg>
     ),
     title: 'Individual displays',
@@ -105,8 +100,8 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <rect x="3" y="7" width="18" height="10" rx="2"/>
-        <path d="M7 10v4m4-4v4m4-4v4"/>
+        <rect x="3" y="7" width="18" height="10" rx="2" />
+        <path d="M7 10v4m4-4v4m4-4v4" />
       </svg>
     ),
     title: 'Dedicated peripherals',
@@ -115,8 +110,8 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1"/>
-        <circle cx="12" cy="12" r="5"/>
+        <path d="M12 3v3m0 12v3M3 12h3m12 0h3M5.6 5.6l2.1 2.1m8.6 8.6 2.1 2.1m0-12.8-2.1 2.1m-8.6 8.6-2.1 2.1" />
+        <circle cx="12" cy="12" r="5" />
       </svg>
     ),
     title: 'Easy management',
@@ -125,8 +120,8 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <circle cx="12" cy="12" r="9"/>
-        <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18"/>
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18M12 3a15 15 0 0 1 0 18M12 3a15 15 0 0 0 0 18" />
       </svg>
     ),
     title: 'Modern connectivity',
@@ -135,8 +130,8 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M12 3 4 6v5c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6z"/>
-        <path d="m8.5 12 2.2 2.2 4.8-5"/>
+        <path d="M12 3 4 6v5c0 5 3.4 8.3 8 10 4.6-1.7 8-5 8-10V6z" />
+        <path d="m8.5 12 2.2 2.2 4.8-5" />
       </svg>
     ),
     title: 'Built for business',
@@ -145,7 +140,7 @@ const features = [
   {
     icon: (
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
-        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+        <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
       </svg>
     ),
     title: 'Lower infrastructure',
@@ -257,8 +252,8 @@ const specificationGroups = [
   {
     title: 'Memory & storage',
     rows: [
-      ['System memory', '64 GB DDR5-6400'],
-      ['Storage', '1 TB PCIe Gen 4 NVMe SSD'],
+      ['System memory', '128 GB DDR5-6400'],
+      ['Storage', 'X2 PCIe NVMe SSD'],
       ['Memory type', 'High-speed system memory'],
       ['Expansion', 'Available via ZMD configuration'],
     ],
@@ -404,29 +399,37 @@ const configurations = [
     model: 'ZMD-QD4-BOX',
     name: 'Quad Desk Host System',
     description: 'For organisations upgrading existing infrastructure while retaining current monitors and peripherals.',
+    image: quadDeskChassis,
+    imageAlt: 'ZMD Quad Desk Host System Chassis',
+    columns: [
+      [
+        '1 × ZMD Quad Desk host',
+        'Intel® Core™ Ultra 7',
+        '128 GB DDR5 memory',
+        'X2 PCIe NVMe SSD',
+        'ZMD multi-seat software',
+        '3-year ZMD warranty',
+      ],
+      [
+        '4 × Full HD IPS monitors',
+        '4 × keyboard and mouse sets',
+        '4 × multimedia headsets',
+        'Display cables and USB hubs',
+      ],
+    ],
     items: [
       '1 × ZMD Quad Desk host',
       'Intel® Core™ Ultra 7',
-      '64 GB DDR5 memory',
-      '1 TB PCIe Gen 4 NVMe SSD',
+      '128 GB DDR5 memory',
+      'X2 PCIe NVMe SSD',
       'ZMD multi-seat software',
       '3-year ZMD warranty',
-    ],
-    note: 'Ideal for existing computer labs and offices.',
-  },
-  {
-    model: 'ZMD-QD4-POD',
-    name: 'Complete 4-Seat Turnkey Pod',
-    description: 'For new computer labs, offices and contact-centre deployments requiring a complete out-of-the-box setup.',
-    items: [
-      '1 × ZMD Quad Desk host',
       '4 × Full HD IPS monitors',
       '4 × keyboard and mouse sets',
       '4 × multimedia headsets',
       'Display cables and USB hubs',
-      '3-year ZMD warranty',
     ],
-    note: 'A complete setup for four simultaneous workspaces.',
+    note: 'Ideal for existing computer labs and offices.',
   },
 ];
 
@@ -438,19 +441,38 @@ function QuadDeskConfigurations() {
           title="Same performance. More possibilities."
           body="Choose a host system for existing infrastructure or a complete four-seat turnkey pod for new deployments."
         />
-        <div className="quad-desk-config-grid">
+        <div className={`quad-desk-config-grid ${configurations.length === 1 ? 'quad-desk-config-grid--single' : ''}`}>
           {configurations.map((config) => (
             <article className="quad-desk-config-card" key={config.model}>
               <div className="quad-desk-config-card__top">
-                <div className="quad-desk-config-card__model">{config.model}</div>
-                <h3>{config.name}</h3>
-                <p>{config.description}</p>
+                <div className="quad-desk-config-card__header">
+                  <div className="quad-desk-config-card__model">{config.model}</div>
+                  <h3>{config.name}</h3>
+                  <p>{config.description}</p>
+                </div>
+                {config.image && (
+                  <div className="quad-desk-config-card__media">
+                    <img src={config.image} alt={config.imageAlt || config.name} loading="lazy" />
+                  </div>
+                )}
               </div>
-              <ul className="quad-desk-config-card__list">
-                {config.items.map((item) => (
-                  <li key={item}>{item}</li>
-                ))}
-              </ul>
+              {config.columns ? (
+                <div className="quad-desk-config-card__columns">
+                  {config.columns.map((col, idx) => (
+                    <ul className="quad-desk-config-card__list" key={idx}>
+                      {col.map((item) => (
+                        <li key={item}>{item}</li>
+                      ))}
+                    </ul>
+                  ))}
+                </div>
+              ) : (
+                <ul className="quad-desk-config-card__list">
+                  {config.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              )}
               <div className="quad-desk-config-card__foot">
                 {config.note}
               </div>
@@ -501,11 +523,9 @@ export default function QuadDeskPage() {
     const items = [...root.querySelectorAll(selectors.join(','))];
     const syncItem = (item) => {
       const bounds = item.getBoundingClientRect();
-      const visible =
-        keepFinalSectionVisibleAtPageEnd(item, root) ||
-        (item.classList.contains('is-quad-motion-visible')
-          ? bounds.top <= window.innerHeight * 1.05 && bounds.bottom >= window.innerHeight * -0.05
-          : bounds.top <= window.innerHeight * 0.92 && bounds.bottom >= window.innerHeight * 0.01);
+      const visible = item.classList.contains('is-quad-motion-visible')
+        ? bounds.top <= window.innerHeight * 1.05 && bounds.bottom >= window.innerHeight * -0.05
+        : bounds.top <= window.innerHeight * 0.92 && bounds.bottom >= window.innerHeight * 0.01;
       item.classList.toggle('is-quad-motion-visible', reducedMotion.matches || visible);
     };
 
@@ -556,7 +576,15 @@ export default function QuadDeskPage() {
           <img
             src={quadDeskHero}
             alt=""
-            className="quad-desk-hero-backdrop__image"
+            className="quad-desk-hero-backdrop__image quad-desk-hero-backdrop__image--desktop"
+            loading="eager"
+            decoding="async"
+            fetchPriority="high"
+          />
+          <img
+            src={quadDeskHeroMobile}
+            alt=""
+            className="quad-desk-hero-backdrop__image quad-desk-hero-backdrop__image--mobile"
             loading="eager"
             decoding="async"
             fetchPriority="high"
@@ -573,7 +601,8 @@ export default function QuadDeskPage() {
             </h1>
             <p>
               Give four people their own complete desktop experience from one powerful host system.
-              Built for modern offices, computer labs and enterprise deployments.
+              Each person works with a separate login, applications and peripherals, while IT teams manage
+              one shared platform across modern offices, computer labs and enterprise deployments.
             </p>
             <div className="product-story-hero__actions">
               <a
@@ -592,8 +621,8 @@ export default function QuadDeskPage() {
             </div>
             <div className="quad-desk-hero-chips" aria-label="Key platform specifications">
               <span className="quad-desk-chip">Intel® Core™ Ultra 7</span>
-              <span className="quad-desk-chip">64 GB DDR5-6400</span>
-              <span className="quad-desk-chip">1 TB Gen 4 NVMe</span>
+              <span className="quad-desk-chip">128 GB DDR5-6400</span>
+              <span className="quad-desk-chip">X2 PCIe NVMe SSD</span>
               <span className="quad-desk-chip">Intel® AI Boost NPU</span>
             </div>
           </div>
@@ -642,8 +671,8 @@ export default function QuadDeskPage() {
 
       <OEMEngagement
         title="Ready to create four workspaces from one system?"
-        body="Talk to ZMD about Quad Desk configurations, pricing and deployment requirements for your organisation."
-        action="Contact sales"
+        body="Talk to ZMD about Quad Desk configurations, pricing and deployment requirements. Share your seat count, display needs and preferred operating system, and we can help identify the right host or turnkey setup for your organisation."
+        action="Discuss Quad-Desk requirements"
       />
     </div>
   );
