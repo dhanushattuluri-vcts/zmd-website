@@ -61,8 +61,8 @@ function OEMEngagement({ title, body, action = 'Partner with ZMD' }) {
 
 const highlights = [
   ['Independent users', '4 simultaneous'],
-  ['Memory', '128 GB DDR5-6400'],
-  ['Storage', 'X2 PCIe NVMe SSD'],
+  ['Memory', 'upto 128 GB DDR5-6400'],
+  ['Storage', '2X PCIe NVMe SSD'],
   ['Warranty', '3-year ZMD'],
 ];
 
@@ -252,8 +252,8 @@ const specificationGroups = [
   {
     title: 'Memory & storage',
     rows: [
-      ['System memory', '128 GB DDR5-6400'],
-      ['Storage', 'X2 PCIe NVMe SSD'],
+      ['System memory', 'upto 128 GB DDR5-6400'],
+      ['Storage', '2X PCIe NVMe SSD'],
       ['Memory type', 'High-speed system memory'],
       ['Expansion', 'Available via ZMD configuration'],
     ],
@@ -405,8 +405,8 @@ const configurations = [
       [
         '1 × ZMD Quad Desk host',
         'Intel® Core™ Ultra 7',
-        '128 GB DDR5 memory',
-        'X2 PCIe NVMe SSD',
+        'upto 128 GB DDR5 memory',
+        '2X PCIe NVMe SSD',
         'ZMD multi-seat software',
         '3-year ZMD warranty',
       ],
@@ -420,8 +420,8 @@ const configurations = [
     items: [
       '1 × ZMD Quad Desk host',
       'Intel® Core™ Ultra 7',
-      '128 GB DDR5 memory',
-      'X2 PCIe NVMe SSD',
+      'upto 128 GB DDR5 memory',
+      '2X PCIe NVMe SSD',
       'ZMD multi-seat software',
       '3-year ZMD warranty',
       '4 × Full HD IPS monitors',
@@ -621,8 +621,8 @@ export default function QuadDeskPage() {
             </div>
             <div className="quad-desk-hero-chips" aria-label="Key platform specifications">
               <span className="quad-desk-chip">Intel® Core™ Ultra 7</span>
-              <span className="quad-desk-chip">128 GB DDR5-6400</span>
-              <span className="quad-desk-chip">X2 PCIe NVMe SSD</span>
+              <span className="quad-desk-chip">upto 128 GB DDR5-6400</span>
+              <span className="quad-desk-chip">2X PCIe NVMe SSD</span>
               <span className="quad-desk-chip">Intel® AI Boost NPU</span>
             </div>
           </div>
